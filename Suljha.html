@@ -1,0 +1,244 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Suljha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap">
+<style>
+  /* Sarvam system: light serif headings + clean sans body, orange-to-lavender gradient hero on pale blue-white, dark-slate pill CTAs, airy centered layout, indigo accent. */
+  /* Light theme only, to match Sarvam which is always light regardless of OS setting. */
+  :root{
+    --bg:#ffffff;
+    --card:#d0d0d0;
+    --fg:#1f1f1f;
+    --muted:#323237;
+    --line:#ececf0;
+    --orange:#ec8b64;
+    --lav:#bccee5;
+    --accent:#252590;
+    --check:#2563eb;
+    --btn-bg:#26293f;
+    --btn-fg:#d2d2d2;
+    --navfg:#1f1f1f;
+    /* orange radial bloom from upper-centre, white corners, deepening to real light blue, easing back to white */
+    --hero: radial-gradient(128% 78% at 50% 8%, #f29a47 10%, rgb(243, 219, 111) 35%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg,#6D99F2 0%,#8BA7DE 32%,#A5BFF3 60%,#d6e8fb 80%,#ffffff 100%);
+    --disp:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --body:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    color-scheme:light;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;margin:0;line-height:1.1;letter-spacing:-0.04em;text-wrap:balance}
+  p{margin:0}
+  a{color:inherit}
+
+  .btn{font-family:var(--body);font-size:16px;font-weight:500;padding:13px 26px;border:none;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);cursor:pointer;white-space:nowrap;transition:opacity .15s ease,transform .08s ease}
+  .btn:hover{opacity:.9}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  /* hero */
+  .hero-bg{background:var(--hero)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:24px}
+  .logo{font-family:var(--disp);font-size:25px;font-weight:500;letter-spacing:-0.01em;color:var(--navfg)}
+  .nav .right{font-family:var(--body);font-size:13px;font-weight:600;color:var(--navfg);opacity:.75;letter-spacing:.02em}
+  .hero{text-align:center;max-width:780px;margin:0 auto;padding-block:40px 86px}
+  .flourish{width:150px;height:auto;margin:0 auto 20px;display:block;opacity:.85}
+  .tag{font-family:var(--body);font-size:14px;font-weight:600;color:var(--accent);margin-bottom:28px;letter-spacing:.01em}
+  .hero h1{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-size:clamp(44px,7.5vw,78px);font-weight:500;letter-spacing:-0.05em}
+  .hero .sub{font-size:clamp(17px,2.2vw,21px);color:var(--muted);margin:24px auto 0;max-width:40ch;font-weight:400;line-height:1.55}
+  .hero .sub b{color:var(--fg);font-weight:600}
+
+  .signup{margin:34px auto 0;max-width:470px}
+  .signup form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .signup input[type=email]{flex:1;min-width:210px;font-family:var(--body);font-size:16px;padding:13px 22px;border:1.5px solid rgba(26,28,32,.14);border-radius:999px;background:rgba(255,255,255,.92);color:#1a1c20}
+  .signup input[type=email]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+  .reassure{font-size:13.5px;color:var(--muted);margin-top:14px}
+  .done{font-size:16px;color:var(--accent);font-weight:600;padding:12px}
+
+  /* sections */
+  section{padding-block:72px;border-top:1px solid var(--line)}
+  .lead{font-size:clamp(28px,4vw,40px);font-weight:500;letter-spacing:-0.05em;max-width:30ch}
+  .say{font-family:var(--body);font-size:17.5px;color:var(--muted);margin-top:20px;max-width:58ch;line-height:1.62}
+
+  .feats{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+  .feat{min-width:0;background:#ffffff;border:1px solid #e9ebef;border-radius:18px;padding:34px}
+  .feat .k{display:block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+  .feat h3{font-size:22px;font-weight:650;letter-spacing:-0.03em;margin-bottom:10px}
+  .feat p{font-family:var(--body);font-size:15.5px;color:var(--muted);line-height:1.6}
+
+  .trust{background:#ffffff;border:1px solid #e9ebef;border-radius:22px;padding:46px}
+  .trust h2{font-size:clamp(26px,3.4vw,34px);font-weight:500;letter-spacing:-0.05em}
+  .tlist{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px;margin-top:34px}
+  .tlist div{min-width:0;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .tlist .ck{grid-row:span 2;width:24px;height:24px;flex:none;margin-top:2px}
+  .tlist b{font-family:var(--body);font-size:16px;font-weight:600;margin-bottom:6px}
+  .tlist p{grid-column:2;font-family:var(--body);font-size:14.5px;color:var(--muted);line-height:1.58}
+
+  .samples{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .chip{font-family:var(--body);font-size:14.5px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:9px 18px}
+
+  .band{background:var(--btn-bg);color:var(--btn-fg);border-radius:24px;padding:clamp(42px,6vw,68px);text-align:center;margin-block:12px}
+  .band h2{font-size:clamp(30px,4.6vw,46px);font-weight:500;letter-spacing:-0.05em;color:inherit}
+  .band>p{font-family:var(--body);color:color-mix(in srgb,var(--btn-fg) 68%,transparent);margin-top:16px;font-size:16.5px}
+  .band .signup{margin-top:30px}
+  .band input[type=email]{background:transparent;border-color:color-mix(in srgb,var(--btn-fg) 34%,transparent);color:var(--btn-fg)}
+  .band input[type=email]::placeholder{color:color-mix(in srgb,var(--btn-fg) 55%,transparent)}
+  .band .btn{background:var(--btn-fg);color:var(--btn-bg)}
+  .band .reassure{color:color-mix(in srgb,var(--btn-fg) 64%,transparent)}
+  .band .done{color:var(--btn-fg)}
+
+  footer{border-top:1px solid var(--line);padding-block:38px 48px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  footer .logo{font-size:21px;color:var(--fg)}
+  footer small{font-family:var(--body);color:var(--muted);font-size:13.5px}
+
+  @media (max-width:720px){
+    .feats{grid-template-columns:1fr}
+    .tlist{grid-template-columns:1fr}
+    .trust{padding:28px}
+    .hero{padding-block:28px 60px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="hero-bg">
+  <div class="wrap">
+    <nav class="nav">
+      <span class="logo">suljha</span>
+      <span class="right">by Sarvam AI</span>
+    </nav>
+
+    <header class="hero">
+      <svg class="flourish" viewBox="0 0 160 34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M80 6c-10 0-14 12-26 12-9 0-13-7-21-7-6 0-10 4-10 9"/>
+        <path d="M80 6c10 0 14 12 26 12 9 0 13-7 21-7 6 0 10 4 10 9"/>
+        <circle cx="80" cy="6" r="2.4" fill="#fff" stroke="none"/>
+        <path d="M44 28h72" opacity=".55"/>
+      </svg>
+      <div class="tag">For parents keeping up with school</div>
+      <h1>Your child's school, finally handled.</h1>
+      <p class="sub">Suljha reads your school WhatsApp groups and the school app, finds what actually needs you, and gets it done. <b>The fee paid, the chart paper ordered, the nanny told.</b> In your language.</p>
+
+      <div class="signup">
+        <form id="f1" novalidate>
+          <input type="email" id="e1" name="email" placeholder="Your email" aria-label="Your email" required>
+          <button class="btn" type="submit">Get early access</button>
+        </form>
+        <p class="done" id="d1" hidden>You're on the list. We'll reach out before the next school term.</p>
+        <p class="reassure">Works on your phone. Nothing needed from your school.</p>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="lead">The group has 200 messages. One of them matters.</h2>
+    <p class="say">A fee buried between good-morning forwards. "Bring chart paper tomorrow" at 11 PM. A parent-teacher meeting you hear about once it's over. One parent, usually the mother, holds all of it in her head, every day. Suljha holds it instead.</p>
+  </section>
+
+  <section>
+    <div class="feats">
+      <div class="feat">
+        <span class="k">Catches it</span>
+        <h3>Finds what matters in the noise</h3>
+        <p>It reads every class group and the school app, drops the chatter, and surfaces only what your child actually needs, in time to act on it.</p>
+      </div>
+      <div class="feat">
+        <span class="k">Handles it</span>
+        <h3>Pays and orders in one tap</h3>
+        <p>The term fee, the annual booklist, the last-minute supplies. You tap once to approve. Money never moves on its own.</p>
+      </div>
+      <div class="feat">
+        <span class="k">Shares it</span>
+        <h3>Speaks to whoever helps at home</h3>
+        <p>A voice note to the nanny or your husband, in the language they speak, so the morning gets handled even when you are at work.</p>
+      </div>
+      <div class="feat">
+        <span class="k">Never drops it</span>
+        <h3>Asks when unsure, updates when things change</h3>
+        <p>When a notice gets corrected, it quietly fixes the one entry. You see the final answer, not the ten messages it took to get there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="trust">
+      <h2>Built to be trusted with your family.</h2>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="seal" viewBox="0 0 24 24"><path fill="var(--check)" d="M12 1.6l2.3 1.7 2.8-.5 1.3 2.6 2.6 1.3-.5 2.8L22 12l-1.7 2.2.5 2.8-2.6 1.3-1.3 2.6-2.8-.5L12 22.4l-2.3-1.7-2.8.5-1.3-2.6-2.6-1.3.5-2.8L2 12l1.7-2.2-.5-2.8 2.6-1.3L7.1 3l2.8.5z"/><path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.3 12.2l2.5 2.5 4.9-5.4"/></symbol></svg>
+      <div class="tlist">
+        <div>
+          <svg class="ck" aria-hidden="true"><use href="#seal"/></svg>
+          <b>It lives on your phone</b>
+          <p>Suljha reads your notifications on your own device. Your family's information stays yours.</p>
+        </div>
+        <div>
+          <svg class="ck" aria-hidden="true"><use href="#seal"/></svg>
+          <b>The class only sees the plain fact</b>
+          <p>A date, a fee, a supply list. Never names, never anyone's messages, never which child.</p>
+        </div>
+        <div>
+          <svg class="ck" aria-hidden="true"><use href="#seal"/></svg>
+          <b>The school does nothing</b>
+          <p>No sign-up, no install, no cooperation needed from the school or the teacher. It just works for you.</p>
+        </div>
+        <div>
+          <svg class="ck" aria-hidden="true"><use href="#seal"/></svg>
+          <b>You stay in charge</b>
+          <p>It does more as you trust it more, and every payment still waits for your tap. You can see everything it did.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="lead">It understands how India actually types.</h2>
+    <p class="say">Hinglish, Manglish, a blurry photo of a circular, a voice note at midnight. Built on Sarvam AI's Indian-language models, Suljha reads the mess the way a person would, not the way a form wants it.</p>
+    <div class="samples">
+      <span class="chip">"kal chart paper lana hai"</span>
+      <span class="chip">"fees last date 📄"</span>
+      <span class="chip">"PTM Sat 10am, pls come"</span>
+      <span class="chip">"tomorrow holiday aano?"</span>
+    </div>
+  </section>
+
+  <section style="border-top:none;padding-top:22px">
+    <div class="band">
+      <h2>Be the first parent in your class.</h2>
+      <p>Early access opens before the next school term.</p>
+      <div class="signup">
+        <form id="f2" novalidate>
+          <input type="email" id="e2" name="email" placeholder="Your email" aria-label="Your email" required>
+          <button class="btn" type="submit">Get early access</button>
+        </form>
+        <p class="done" id="d2" hidden>You're on the list. We'll reach out before the next school term.</p>
+        <p class="reassure">One parent per class is all it takes to start.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo">suljha <span style="font-family:var(--body);font-size:13px;font-weight:600;color:var(--muted)">by Sarvam AI</span></span>
+    <small>The phone highlights; Suljha handles.</small>
+  </footer>
+
+</div>
+
+<script>
+  function wire(f,i,d){
+    var F=document.getElementById(f),I=document.getElementById(i),D=document.getElementById(d);
+    if(!F) return;
+    F.addEventListener("submit",function(e){
+      e.preventDefault();
+      var v=(I.value||"").trim();
+      if(!v||v.indexOf("@")<1||v.indexOf(".")<0){I.focus();I.style.borderColor="var(--orange)";return;}
+      F.hidden=true;D.hidden=false;
+    });
+  }
+  wire("f1","e1","d1");
+  wire("f2","e2","d2");
+</script>
+
+</body></html>
